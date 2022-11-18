@@ -144,13 +144,13 @@ public class OTPHttpEmailSenderAuthNode extends SingleOutcomeNode {
             logger.debug("Sending one time password from {}, to {}", config.fromEmailAddress(), toEmailAddress);
             if (config.htmlValidationMethod().equals(HtmlValidationMethod.INLINE)) {
                 sendHtmlEmail(config.hostName(), String.valueOf(config.hostPort()), config.username(), String.valueOf(config.password().get()), toEmailAddress, bundle.getString("messageSubject"),
-                        config.htmlValidationValue(), oneTimePassword);
+                        config.htmlValidationValue(), oneTimePassword, config.fromEmailAddress());
             } else if (config.htmlValidationMethod().equals(HtmlValidationMethod.FILE_BASED)) {
                 String body = "";
                 if (isUrlValid(config.htmlValidationValue()))
                     body = getStringFromFile();
                 sendHtmlEmail(config.hostName(), String.valueOf(config.hostPort()), config.username(), String.valueOf(config.password().get()), toEmailAddress, bundle.getString("messageSubject"),
-                        body, oneTimePassword);
+                        body, oneTimePassword, config.fromEmailAddress());
             }
         } catch (Exception e) {
             logger.warn("Email sending failure", e);
@@ -246,7 +246,7 @@ public class OTPHttpEmailSenderAuthNode extends SingleOutcomeNode {
     // New method to send HTML email
     private void sendHtmlEmail(String host, String port,
                                final String userName, final String password, String toAddress,
-                               String subject, String message, String oneTimePassword) throws AddressException,
+                               String subject, String message, String oneTimePassword, String fromAddress) throws AddressException,
             MessagingException {
 
         // sets SMTP server properties
@@ -268,7 +268,7 @@ public class OTPHttpEmailSenderAuthNode extends SingleOutcomeNode {
         // creates a new e-mail message
         Message msg = new MimeMessage(session);
 
-        msg.setFrom(new InternetAddress(userName));
+        msg.setFrom(new InternetAddress(fromAddress));
         InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject);
