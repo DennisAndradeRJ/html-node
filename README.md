@@ -19,7 +19,7 @@ A simple authentication node for ForgeRock's [Identity Platform][forgerock_platf
 
 ## Information
 
-This node will add support for a custom email body while using the OTP functionality. Most of the companies have the need to change the look and feel from the body of this type of emails. This Node will make this task easier on you.
+This node adds support for a custom email body while using the OTP functionality. Most of the companies have the need to change the look and feel from the body of this type of emails. This Node will make this task easier on you.
 
 ## Usage
 Follow the steps below to deploy this node:

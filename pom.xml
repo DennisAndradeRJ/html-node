@@ -23,14 +23,14 @@
     <artifactId>OTPHttpEmailSenderAuthNode</artifactId>
 
     <groupId>com.example</groupId>
-    <version>1.0.0</version>    
+    <version>1.1.0</version>
     <name>OTP HTML Email Sender Auth Node</name>
     <description>An Authentication Tree Node for ForgeRock's Identity Platform. This node will send an email with an OTP to the user. This node supports the use of HTML code in the mail body</description>
 
     <properties>
-        <am.version>6.5.3</am.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <am.version>7.2.0</am.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.forgerock.am</groupId>
             <artifactId>auth-nodes</artifactId>
-            <version>6.5.2.3</version>
+            <version>7.2.0</version>
         </dependency>
     </dependencies>
 
@@ -81,6 +81,14 @@
             <id>forgerock-private-releases</id>
             <name>ForgeRock Private Release Repository</name>
             <url>https://maven.forgerock.org/repo/private-releases</url>
+        </repository>
+        <repository>
+            <id>forgerock-build-dependencies</id>
+            <name>ForgeRock Private Release Repository for AM 7.2.0</name>
+            <url>https://maven.forgerock.org/repo/forgerock-openam-7.2.0-dependencies</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 

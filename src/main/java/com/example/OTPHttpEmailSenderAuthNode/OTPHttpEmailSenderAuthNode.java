@@ -28,6 +28,7 @@ import java.net.URL;
 import java.util.*;
 
 import com.sun.identity.sm.RequiredValueValidator;
+import org.forgerock.json.JsonValue;
 import org.forgerock.openam.annotations.sm.Attribute;
 import org.forgerock.openam.auth.node.api.Action;
 import org.forgerock.openam.auth.node.api.Node;
@@ -126,8 +127,13 @@ public class OTPHttpEmailSenderAuthNode extends SingleOutcomeNode {
 
             context.sharedState.add(EMAIL_ADDRESS, getToEmailAddress(identity, username, bundle));
         }
-        String oneTimePassword = context.sharedState.get(ONE_TIME_PASSWORD).asString();
-        sendEmail(bundle, context.sharedState.get(EMAIL_ADDRESS).asString(), oneTimePassword);
+        //String oneTimePassword = context.sharedState.get(ONE_TIME_PASSWORD).asString();
+        JsonValue oneTimePassword = context.getState(ONE_TIME_PASSWORD);
+        if (oneTimePassword == null) {
+            logger.warn("oneTimePasswordNotFound");
+            throw new NodeProcessException(bundle.getString("oneTimePassword.not.found"));
+        }
+        sendEmail(bundle, context.sharedState.get(EMAIL_ADDRESS).asString(), oneTimePassword.asString());
 
         return goToNext().replaceSharedState(context.sharedState.copy()).build();
     }
@@ -135,16 +141,15 @@ public class OTPHttpEmailSenderAuthNode extends SingleOutcomeNode {
     private void sendEmail(ResourceBundle bundle, String toEmailAddress,
                            String oneTimePassword) throws NodeProcessException {
         try {
-            logger.debug("sending one time password from {}, to {}", config.fromEmailAddress(), toEmailAddress);
-
+            logger.debug("Sending one time password from {}, to {}", config.fromEmailAddress(), toEmailAddress);
             if (config.htmlValidationMethod().equals(HtmlValidationMethod.INLINE)) {
-                sendHtmlEmail(config.hostName(), String.valueOf(config.hostPort()), config.fromEmailAddress(), String.valueOf(config.password()), toEmailAddress, bundle.getString("messageSubject"),
+                sendHtmlEmail(config.hostName(), String.valueOf(config.hostPort()), config.username(), String.valueOf(config.password().get()), toEmailAddress, bundle.getString("messageSubject"),
                         config.htmlValidationValue(), oneTimePassword);
             } else if (config.htmlValidationMethod().equals(HtmlValidationMethod.FILE_BASED)) {
                 String body = "";
                 if (isUrlValid(config.htmlValidationValue()))
                     body = getStringFromFile();
-                sendHtmlEmail(config.hostName(), String.valueOf(config.hostPort()), config.fromEmailAddress(), String.valueOf(config.password()), toEmailAddress, bundle.getString("messageSubject"),
+                sendHtmlEmail(config.hostName(), String.valueOf(config.hostPort()), config.username(), String.valueOf(config.password().get()), toEmailAddress, bundle.getString("messageSubject"),
                         body, oneTimePassword);
             }
         } catch (Exception e) {

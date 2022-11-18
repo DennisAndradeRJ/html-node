@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.forgerock.opendj:opendj-config:7.2.0-20220620152556-9799e558d11bc6318e3de265fbcb32b45888b240">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/forgerock/opendj/opendj-config/7.2.0-20220620152556-9799e558d11bc6318e3de265fbcb32b45888b240/opendj-config-7.2.0-20220620152556-9799e558d11bc6318e3de265fbcb32b45888b240.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/forgerock/opendj/opendj-config/7.2.0-20220620152556-9799e558d11bc6318e3de265fbcb32b45888b240/opendj-config-7.2.0-20220620152556-9799e558d11bc6318e3de265fbcb32b45888b240-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/forgerock/opendj/opendj-config/7.2.0-20220620152556-9799e558d11bc6318e3de265fbcb32b45888b240/opendj-config-7.2.0-20220620152556-9799e558d11bc6318e3de265fbcb32b45888b240-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

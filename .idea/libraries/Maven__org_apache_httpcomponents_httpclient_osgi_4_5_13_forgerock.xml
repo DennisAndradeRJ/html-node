@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.httpcomponents:httpclient-osgi:4.5.13-forgerock">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient-osgi/4.5.13-forgerock/httpclient-osgi-4.5.13-forgerock.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient-osgi/4.5.13-forgerock/httpclient-osgi-4.5.13-forgerock-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient-osgi/4.5.13-forgerock/httpclient-osgi-4.5.13-forgerock-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

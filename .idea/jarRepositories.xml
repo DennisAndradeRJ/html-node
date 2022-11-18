@@ -2,6 +2,11 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="forgerock-private-releases" />
+      <option name="name" value="forgerock-private-releases" />
+      <option name="url" value="https://maven.forgerock.org/artifactory/private-releases" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
@@ -20,6 +25,26 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="forgerock-private-releases" />
+      <option name="name" value="ForgeRock Private Release Repository" />
+      <option name="url" value="https://maven.forgerock.org/repo/private-releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="forgerock-private-releases" />
+      <option name="name" value="ForgeRock Private Release Repository" />
+      <option name="url" value="https://maven.forgerock.org/artifactory/private-releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="forgerock-private-snapshots" />
+      <option name="name" value="forgerock-private-snapshots" />
+      <option name="url" value="https://maven.forgerock.org:443/artifactory/private-snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="forgerock-build-dependencies" />
+      <option name="name" value="ForgeRock Private Release Repository for AM 7.2.0" />
+      <option name="url" value="https://maven.forgerock.org/repo/forgerock-openam-7.2.0-dependencies" />
     </remote-repository>
   </component>
 </project>
